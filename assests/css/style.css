@@ -1,0 +1,13 @@
+.status {
+  background-color: #fff;
+  color: #fff;
+  font-size: 1rem;
+}
+
+.statusOk {
+  background-color: green;
+}
+
+.statusError {
+  background-color: red;
+}
