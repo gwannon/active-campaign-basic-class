@@ -1,0 +1,22 @@
+php_admin_flag safe_mode Off
+
+<Files script_migration.php>
+  SetEnv no-gzip 1
+</Files>
+
+<IfModule mod_rewrite.c>
+	RewriteEngine On
+	RewriteCond %{HTTPS} off
+	RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+</IfModule>
+
+<FilesMatch \.(php|txt|html)$>
+  SetEnv no-gzip 1 
+  SetEnv no-brotli 1
+</FilesMatch>
+
+<IfModule mod_rewrite.c>
+	RewriteEngine On
+  RewriteBase /
+	RewriteRule ^(.*)$ $1 [NS,E=no-gzip:1,E=dont-vary:1,E=no-brotli:1]
+</IfModule>

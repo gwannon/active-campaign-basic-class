@@ -1,0 +1,6 @@
+config.php
+force_migration.php
+fix_url_invalid.php
+migration.txt
+logs/errors.txt
+logs/log.txt
